@@ -2,7 +2,22 @@ language: java
 install: true
 jdk:
 - openjdk11
-
+env:
+  global:
+  - GPG_FILE_NAME="ekino-gradle-docker-plugin.gpg"
+  - ENCRYPTED_GPG_FILE_NAME="ekino-gradle-docker-plugin.gpg.enc"
+  #PUBLISH_SNAPSHOT_REPO_URL
+  - secure: j4g6A6gyprHCw/NZB/VbraL3MDJ/EAePqK150RLg0UefVQUlFjW5LIJWaC7/C7cjt8gNeqXOfpT8YzfO3pMloanjomRCg0KLPNLHa+jPOd85ZJr3aVf1xZs+fx9CFN6u9r89z29R3QjATthPqXxGZdWL79RyrQCZRJb+eK8xfrrcZIk9ts8MSiHaLq0j7PurGAT2cgrcuHALTH7v11jP8XJI/vQU4DZxlNpOLPmEII1Sevo6Md3PnI+7ZooU+SebpyjjIgb/4PINgphKuP0mVGrYZUEYWFk8jyqRjivlYwsYjjhk71SOBO6yVN3+K85zstjL4KjdI83fTsA0dP37BdMNlbybfKEgDTIw2UmiMgD4utjv7OEc1bTUAanB0tOqlP3Z6zyefMybU+cPkxMlF3ZjzEE/8cbFtkmZzCyvCiJLUvTnleA6DAElh1jYYSLrczh/VknpV/u7/UBLOKhCiJA3Nc4MmpeUiKLPNyOJoTopVkQ/x2fwWUtKzmRvgSo1owcZzTMiBe/H/M/2MmQkdSG6Bmq1l+nDzR3aucuonTAbce7q2JwGdY5ELH+R8iRaPo3Fxy6EF7nkNj1JbdNtMzl0NlwG6xILpWsFB/YBgxYwsVFYBMJosyf4iglWt4nUjzQan9pgjnShnmwcLDHm+kW2l8s1iH4nL3qgpze4AtI=
+  #PUBLISH_RELEASE_REPO_URL
+  - secure: m5hdJvjb2jpia1U2kbi5De+er0BeppF5n1+DTCpmtFGgmcRv1dgNz6guDWZsUa6QjJ6ghELScwkwTzc5KcV0PnchSpN0HiHWjo25wMgbeU++2oiiU3EErOcaZ2iNZgbobKSxq931lvm3LP9sGYXIOjDalNGVQA/5BxDl1e++cnTgAFmzBLIUhD57G/IQuxGtaSAkjcBBz7TItTE4/hPyq2WY4vBx49ZkFXYNKqyZu0Uu/6rJju5ztDRLVEdUvELt3khYvhK2fuaFQWcLdlrF32yr0Lmr7XhGznuXq13NXNQqv1EgamK4hW1EkxWSCDAD3YZ3RFSHB4z9g8BcCctoMVbCMTXGTlRy84MjEyeIPco7zHCimefFVh8ObBpexzhSGa0W2rloLWidu8rxNz1MFVAAyHEkxgPyuIchZsAvC1I0oW38jbzAxxu2z56Pab1h958PozTZGNl1N4qLPzwYWAbgstF+6rG64EyPXu72SJT98oMMWfPT9B0hz3gb4/ikIvMJrvNk4kLLr4TBFC28Sc43esRmVmCx5yW50tWdhgBtU8dUd8fn47NYzMP5hHtpPhnDl7wLnyejI0wGA4SwFzH/DVXANKWE91mE/lRUIXjB6Us7TG70tuEG01WxKmtc9CP4xIA363cX0lisuCD833UqqVUl+z99FOVNUisa9dc=
+  #PUBLISH_REPO_USERNAME
+  - secure: Awa3iE3rEnpaxLPkWuIrHRKwrMpPTfN7D7JyPhK4VQzSuGR0a2umfouPvx7Gz/eQkzviIj9tY4YrZooeUFbBNdxtd5aaEINxYgDSSh6bpYkRTMiuoj/VTfTmnXiOX2/Ac8YpwWesUIKfZpYcpohOKFtXKQMhjL6VKd7INs2V5s0BOlbVaigji3JMeuG68z2tNll9qGbC82KxDpLXUhFhfDipUIPZTAPPcTCZJdfMRVT1X3ZV8WLdNTm8n3qIFFYReE4hErnv+NDiYlIyxobUQdiN+EaeF7X/ephw/ZCe6Jv0suRXTMCTBHa6yaQ9xSDoKJS4Er1n53mnr1f3/LvujLQlQZM/kOasD7qfsqVUCeH4/xLK0QEhk5dKODB1Fl0h0kw8JLYSggzu3K5yIb+qLYJsDhbRsCaYIFjatqoyZRW1Rw+XYVW2OZFFmyuoArDZZnM+YtLZHlD0RHE7q/yZbELDwIy1uUWMuQdGNEnATP9exlR4GTMglHfQsQNOVkN0ZDGEyy1tXLtBOfDwmoAZcd1nPQyj1gjd+07UiwJhQbfKOZbushpBj5qgqChdTFnnOVgwqtO+UJl5T5hvzKJHzWVBgL7KZZMibBeWKWld6M8zPDFLh2no3dvcviLSWQPwl5ibWX+tp1bbHjBY2CK0a/aztbMdrvweXZnrFqoPsCc=
+  #PUBLISH_REPO_PASSWORD
+  - secure: X3AfkwCbbF6RgawGwHX/ypYIXx9JjN8guY2Gr2r+IBp4sjrCqO1UVx2sAx1jr2Uy1+AfMPwAOP3dHZWx/mvwJx6t8+2Vxuz3H5HI+Iw5e5HNO7fAYUNAg5eOI9MncQycIfp3XVLtcfHHlSwzB6BVxWX2OpSx4Bfd23BvSpEQRtGCTtr5PGNyMjMfdoy7MvAr7E3VYNEHVXuzEgZAIgOOv6SO99dCr6kc6Yzi3ZnSAwtj5Q87eBvwXKxxTIYtGYU0tFu5E2k+KQnhIgiCtvI3Pia34hC/WoGyeaPT9k72QylaklMzTy3Dytz6e2TlhyvGgkiufhF4padU6o4X/HMX3bVH2066mdvUuN4SE60u8ZvhYyJB3Zx22e3BQrBApMyw5KsAb+DiRJaoPihhVwFNnQtfjs7EPtNfGehsEyBMGC/MwqnnCS91camrAwfKWd5u4qwzCGIoJwbFVAxJ4Sx4btPdBs3p/0mLQiiCTXbJVEVue0/JSdXZOc9CLfAsTp/xrnuq/hj/o6JBTo742gnCISUU+VSIaeeZ2wO4ufTRcQqS6DzyuIppLXD8839+ZETxP7DT5dAD3uJ6BweB/ig+l1w7If64rYpFHnRlgUo9oAhmBwlFgMo0Hy8GTTV9p4SLPt6F9TMISUJfMFa5TMsmVaXjW5H1HLqY7y1K5jxuWMU=
+  #GPG_KEY_ID
+  - secure: JRT0c3emvetkRtrRLbxW3mx4TQYaFPRnL3Ksqy5zyvakcfOfOL8BkBX3OGTM7bvbzXbxRRquOncpEvNMEza0w83+gH4PoKor14jfrfCqbv/Kqi7kyDExlE8jelQvu55ZXWR6Rb5lBtx3SIvcbIC+lraNAevbjGZXSV6hzLyiSnD0Cqt6mLqBhh+4LsUDOOhgxRwTB2M2uDCoXK8gMNuab/97NGEXV3QDxmHwVYJ+yzxM9wT8MU4dh3XUjV+oR4cdPK40Am8+ais1cdZXkh4MX/lz9fdNKBJ4y++FlDEpGuqr5MZBDd+cxzHIekKFZr/lxN4ftxI6NL/Xdv7Bgt+Piu0DuWT67fUnt5qthWGjMazNulK3Rr8zlb/2z2PaGGwX62lsroR9Oe5S0V9bY8Og7zDa2H7iywxdo33hIXvPZoWVplKUTdtVNlACYv3PpBOENU3+i8am0Mds1WK++0DVU7V9QitnZsAQtqA82gPNn1qHj3LMyhVbHuLFZV2fqT/bGxREAjffUxGuasgxri3zqMqK+RcvNFpxD9dIeLGn+0LJEjL4eu3wCoyCSu1cnDiPxOftY9PX3q+cLYv4KnJg4rVOLz+fXLrqaERx2te/18gy9Xm+gaVKHj8bY5AOvnlZzV9g05jGQLtg6KNdMVkkDKCnY7Nz8jVNZhWi2/qL1kk=
+  #GPG_PASSPHRASE
+  - secure: ewvjIIVFLTaLMJQVyW/sOM7MzGeD8l0CW1gZ06eJWhGFPaWJY0ZWEj/a82ghSts6MWap+ns5dlRK6Nk5T3uMYFiqwwsV1x3wnmpwYs0dPL9NuWzi4mNx1zEfMoa3V3o9iEWKHllUpAOn7IxtMixG6PY1KO4Dcnvugf0pWqEwQ4OMdTni6yiaRNTM3mWvpYsuEhd+v+pyxnqJiweufEYCT3mHnyR2qLym2MHLJoVD1GAKQfS2jbcD6WUtQcIJi5Z81hfSGng0i7zUwDCoSxqko3+9bDx5MjmfjX228adq2b2etcxnkBGshRcWudsONmZ5zb0viOdkG6Y4Hylnxd0WFbSpQV7zGDRhsNynhgfpG6uNOHySnld+JdKUeb6RR3PJgV4ew1O/EL1FIutDPl+mHiUjoKHul2SzjtLwZa3noUXinF63x7j+vQG7iZl4hbEmIoaO8C6+dSjo0k8ZSPPfUzS+YVokzFBuHuSnIQCRf5XouLd73oe+xeiU1obL009yVBvQM3fw9CMmju+8Qkh5viNj0p1WKX6OxEIAIc3eyAbsKaz+YcC9/XCAstncbkNjj7l4ElvCEeEixMGKShKaRUZNuLadh8DhllKEviBnV6S2xH06vLNZF4/2xrylAcJ9nuGFy89sJ/85Cma3GcVQHuXoAkbzk1TyeUvOX5rXfEQ=
 before_script:
 - chmod -R ug+x .travis
 jobs:
@@ -16,7 +31,22 @@ jobs:
       branch = master AND \
       type = push
     script: ".travis/deploy.sh"
-
+  - stage: deploy
+    name: Deploy Release
+    if: tag IS present AND tag =~ ^(\d)+\.(\d)+(\.(\d)+)*(-[\w]+)*$
+    script: ".travis/deploy.sh"
+    deploy:
+      provider: releases
+      api_key:
+        secure: DemQHcDB5IvXqihCquzdYI62VyqJHadGt73613dYDRgBVWamtbECo9YpZg1ScaCFwVgj7nfhzESHy6x2FpqUGt9GaKiRbKDcfKbZmGWpO7y9UfX4C614OYsLDKsLovPrGRuJjiluSXkxt7AvGEbTdLYAb5XJDcAyi2MiAlg7OCAFUDusBQ1r/Ceqqk+s4+oHCRyziz0qnKVKFNadZ32QrMnX2hg4WP1XVEKG15ylNaeBB/QRaL+DR7QSs+AbD2RK33oIBcSPIreatS+2zbqw1vEEBvONus/faA+UawaQSpv7gAdYdaELXIYuFD0c3aDtt5igBSpQoQJTFwv3cY28h2q7oaCsLvCFbos4lwC+VkLlxsHJn6B57UDia3Nrz8Pl8aidGWsSLpCY8vR34tMc9rnsi71PJ97gzNczjHpMMFoZR/TlMDno7H/XGhfA8NTj5mVJqx/Kw+wDVr1zlxYpXFGa55lZOAIe7CIHk8JbKi9f2EaurfM3Gtqt4lBCbHu/yxiAB4Vpa1kiQfJeCk5RVeYtJVpbk4SvVoncEulKkX/hPZHdwQ51+/Wr71Im1EtBrstxxCnxF42zxv+fbietipwjE+RyipR8P6wiVwjkwAINBxTRgyG+We246yBInO3SIz/0WlIioLVGR7M7fXRbG9CCoSYo/kB4FvNO7KI4VQY=
+      file_glob: true
+      file: "$TRAVIS_BUILD_DIR/build/libs/*"
+      body: Release of $TRAVIS_TAG
+      skip_cleanup: true
+      draft: true
+      on:
+        repo: ekino/gradle-docker-plugin
+        tags: true
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -24,3 +54,4 @@ cache:
   directories:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
+

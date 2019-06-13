@@ -7,13 +7,20 @@ plugins {
   id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.60'
 }
 
+repositories {
+  mavenLocal()
+  gradlePluginPortal()
+  jcenter()
+}
+
+
+
 dependencies {
   implementation localGroovy()
   implementation "com.avast.gradle:gradle-docker-compose-plugin:${dockerComposePluginVersion}"
 
   testImplementation gradleTestKit()
-  testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
-  testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
+  testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
 }
 
 test {

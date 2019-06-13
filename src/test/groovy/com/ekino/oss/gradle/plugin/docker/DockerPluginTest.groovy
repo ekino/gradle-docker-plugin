@@ -1,4 +1,4 @@
-package com.ekino.oss.gradle.plugin
+package com.ekino.oss.gradle.plugin.docker
 
 import org.gradle.api.Project
 import org.gradle.testfixtures.ProjectBuilder
@@ -14,7 +14,7 @@ class DockerPluginTest {
     Project project = ProjectBuilder.builder().build()
 
     assertEquals(0, project.getExtensions().getPlugins().size())
-    project.apply plugin: 'com.ekino.frida.docker'
+    project.apply plugin: 'com.ekino.oss.gradle.plugin.docker'
 
     assertTrue(project.pluginManager.hasPlugin('docker-compose'))
   }

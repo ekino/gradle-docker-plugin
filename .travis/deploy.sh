@@ -11,7 +11,7 @@ echo "Project version is ${PROJECT_VERSION}"
 ENCODED_SIGN_FILE_PATH="${DIR}/${ENCRYPTED_GPG_FILE_NAME}"
 SIGN_FILE_PATH="${DIR}/${GPG_FILE_NAME}"
 
-
+openssl aes-256-cbc -K $encrypted_cfd61effe48a_key -iv $encrypted_cfd61effe48a_iv -in "${ENCODED_SIGN_FILE_PATH}" -out "${SIGN_FILE_PATH}" -d
 
 if [[ "${PROJECT_VERSION}" =~ .*-SNAPSHOT$ ]]; then
     ./gradlew publish -PossrhUrl="${PUBLISH_SNAPSHOT_REPO_URL}" -PossrhUsername="${PUBLISH_REPO_USERNAME}" -PossrhPassword="${PUBLISH_REPO_PASSWORD}" -Psigning.keyId="${GPG_KEY_ID}" -Psigning.password="${GPG_PASSPHRASE}" -Psigning.secretKeyRingFile="${SIGN_FILE_PATH}"

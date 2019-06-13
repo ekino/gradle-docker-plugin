@@ -1,4 +1,4 @@
-package com.ekino.oss.gradle.plugin
+package com.ekino.oss.gradle.plugin.docker
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
