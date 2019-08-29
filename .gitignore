@@ -1,6 +1,7 @@
 ### GRADLE ###
 build/
 .gradle/
+out/
 
 ### STS ###
 .classpath
