@@ -1,13 +1,14 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask
 import kotlin.io.println
 
 plugins {
   id("java-gradle-plugin")
-  id("groovy")
   id("maven-publish")
   id("signing")
   id("net.researchgate.release") version "2.8.1"
   id("se.bjurr.gitchangelog.git-changelog-gradle-plugin") version "1.64"
+  kotlin("jvm") version "1.3.50"
 }
 
 gradlePlugin {
@@ -33,7 +34,7 @@ val dockerComposePluginVersion = "0.9.4"
 val junitVersion = "5.5.1"
 
 dependencies {
-  implementation(localGroovy())
+  implementation(kotlin("stdlib-jdk8"))
   implementation("com.avast.gradle:gradle-docker-compose-plugin:$dockerComposePluginVersion")
 
   testImplementation(gradleTestKit())
@@ -41,6 +42,13 @@ dependencies {
 }
 
 tasks {
+  withType<KotlinCompile> {
+    kotlinOptions {
+      freeCompilerArgs = listOf("-Xjsr305=strict")
+      jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+  }
+
   withType<Test> {
     useJUnitPlatform()
 
