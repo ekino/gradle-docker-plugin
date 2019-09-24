@@ -1,6 +1,6 @@
+
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask
-import kotlin.io.println
 
 plugins {
   id("java-gradle-plugin")
@@ -26,19 +26,12 @@ repositories {
   gradlePluginPortal()
 }
 
-group = "com.ekino.oss.gradle.plugin"
-description = "Gradle Plugin for Docker management"
-version = "0.0.1-SNAPSHOT"
-
-val dockerComposePluginVersion = "0.9.4"
-val junitVersion = "5.5.1"
-
 dependencies {
   implementation(kotlin("stdlib-jdk8"))
-  implementation("com.avast.gradle:gradle-docker-compose-plugin:$dockerComposePluginVersion")
+  implementation("com.avast.gradle:gradle-docker-compose-plugin:${property("dockerComposePluginVersion")}")
 
   testImplementation(gradleTestKit())
-  testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
+  testImplementation("org.junit.jupiter:junit-jupiter:${property("junitJupiterVersion")}")
 }
 
 tasks {
