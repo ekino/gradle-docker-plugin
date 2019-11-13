@@ -65,7 +65,7 @@ tasks {
 
   register("printVersion") {
     doLast {
-      println(version)
+      println(project.version)
     }
   }
 
@@ -159,9 +159,9 @@ publishing {
 
       pom.withXml {
         val dependency = asNode().appendNode("dependencies").appendNode("dependency")
-        dependency.appendNode("groupId", group)
-        dependency.appendNode("artifactId", name)
-        dependency.appendNode("version", version)
+        dependency.appendNode("groupId", project.group)
+        dependency.appendNode("artifactId", project.name)
+        dependency.appendNode("version", project.version)
       }
     }
   }
@@ -182,6 +182,9 @@ publishing {
 }
 
 signing {
+  setRequired({
+    project.hasProperty("signing.keyId") && project.hasProperty("signing.password")
+  })
   sign(publishing.publications["mavenJava"])
   sign(publishing.publications["mavenPluginMarker"])
 }
