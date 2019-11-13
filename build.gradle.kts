@@ -6,9 +6,11 @@ plugins {
   id("java-gradle-plugin")
   id("maven-publish")
   id("signing")
+  id("jacoco")
   id("net.researchgate.release") version "2.8.1"
   id("se.bjurr.gitchangelog.git-changelog-gradle-plugin") version "1.64"
   kotlin("jvm") version "1.3.50"
+  id("org.sonarqube") version "2.8"
 }
 
 gradlePlugin {
@@ -187,4 +189,19 @@ signing {
   })
   sign(publishing.publications["mavenJava"])
   sign(publishing.publications["mavenPluginMarker"])
+}
+
+tasks.jacocoTestReport {
+  reports {
+    xml.setEnabled(true)
+  }
+}
+
+sonarqube {
+  properties {
+    property("sonar.projectKey", "ekino_gradle-docker-plugin")
+    property("sonar.java.coveragePlugin", "jacoco")
+    property("sonar.junit.reportPaths", "${buildDir}/test-results/test")
+    property("sonar.coverage.jacoco.xmlReportPaths", "${buildDir}/reports/jacoco/test/jacocoTestReport.xml")
+  }
 }

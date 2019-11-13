@@ -2,6 +2,12 @@
 
 Docker gradle plugin for Ekino projects
 
+[![Build Status](https://travis-ci.org/ekino/gradle-docker-plugin.svg?branch=master)](https://travis-ci.org/ekino/gradle-docker-plugin)
+[![GitHub (pre-)release](https://img.shields.io/github/release/ekino/gradle-docker-plugin.svg)](https://github.com/ekino/gradle-docker-plugin/releases)
+[![GitHub license](https://img.shields.io/github/license/ekino/gradle-docker-plugin.svg)](https://github.com/ekino/gradle-docker-plugin/blob/master/LICENSE.md)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ekino_gradle-docker-plugin&metric=alert_status)](https://sonarcloud.io/dashboard?id=ekino_gradle-docker-plugin)
+
+
 ## Overview
 
 This plugin configures the following tasks for any Frida Java project :
