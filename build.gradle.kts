@@ -65,7 +65,7 @@ tasks {
 
   register("printVersion") {
     doLast {
-      println(version)
+      println(project.version)
     }
   }
 
