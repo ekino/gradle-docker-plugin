@@ -32,6 +32,10 @@ This will upload the plugin to Nexus repository
 
     ./gradlew build publish
 
+## Requirements
+
+- JDK 8
+- Gradle 5.1.1
 
 ## Usage
 
