@@ -10,7 +10,7 @@ Docker gradle plugin for Ekino projects
 
 ## Overview
 
-This plugin configures the following tasks for any Frida Java project :
+This plugin configures the following tasks for any Ekino projects :
 
 * Manage docker-compose
 
