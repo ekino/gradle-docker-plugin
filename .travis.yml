@@ -42,7 +42,7 @@ jobs:
   - stage: deploy
     name: Deploy Release
     if: tag IS present AND tag =~ ^(\d)+\.(\d)+(\.(\d)+)*(-[\w]+)*$
-    script: ".travis/deploy.sh"
+    script: ".travis/build.sh"
     deploy:
       provider: releases
       api_key:
