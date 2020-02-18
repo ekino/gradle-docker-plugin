@@ -3,10 +3,10 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask
 
 plugins {
-  id("java-gradle-plugin")
-  id("maven-publish")
-  id("signing")
-  id("jacoco")
+  `java-gradle-plugin`
+  `maven-publish`
+  jacoco
+  signing
   id("net.researchgate.release") version "2.8.1"
   id("se.bjurr.gitchangelog.git-changelog-gradle-plugin") version "1.64"
   kotlin("jvm") version "1.3.50"
@@ -193,7 +193,7 @@ signing {
 
 tasks.jacocoTestReport {
   reports {
-    xml.setEnabled(true)
+    xml.isEnabled = true
   }
 }
 
