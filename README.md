@@ -35,7 +35,7 @@ This will upload the plugin to Nexus repository
 ## Requirements
 
 - JDK 8
-- Gradle 5.1.1
+- Gradle 5.6.4
 
 ## Usage
 
