@@ -9,7 +9,7 @@ plugins {
   signing
   id("net.researchgate.release") version "2.8.1"
   id("se.bjurr.gitchangelog.git-changelog-gradle-plugin") version "1.64"
-  kotlin("jvm") version "1.3.50"
+  kotlin("jvm") version "1.3.71"
   id("org.sonarqube") version "2.8"
 }
 
@@ -23,7 +23,6 @@ gradlePlugin {
 }
 
 repositories {
-  mavenLocal()
   jcenter()
   gradlePluginPortal()
 }
