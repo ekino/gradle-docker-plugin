@@ -4,22 +4,12 @@ import se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask
 
 plugins {
   `java-gradle-plugin`
-  `maven-publish`
   jacoco
-  signing
   id("net.researchgate.release") version "2.8.1"
   id("se.bjurr.gitchangelog.git-changelog-gradle-plugin") version "1.64"
   kotlin("jvm") version "1.3.71"
   id("org.sonarqube") version "2.8"
-}
-
-gradlePlugin {
-  plugins {
-    register("gradleDocker") {
-      id = "com.ekino.oss.gradle.plugin.docker"
-      implementationClass = "com.ekino.oss.gradle.plugin.docker.DockerPlugin"
-    }
-  }
+  id("com.gradle.plugin-publish") version "0.11.0"
 }
 
 repositories {
@@ -74,120 +64,30 @@ tasks {
     file("CHANGELOG.md")
     templateContent = file("changelog.mustache").readText(Charsets.UTF_8)
   }
-
-  val sourcesJar by creating(Jar::class) {
-    archiveClassifier.set("sources")
-    from(sourceSets.getByName("main").allSource)
-  }
-
-  val javadocJar by creating(Jar::class) {
-    dependsOn.add(javadoc)
-    archiveClassifier.set("javadoc")
-    from(javadoc.get().destinationDir)
-  }
-
-  artifacts {
-    archives(sourcesJar)
-    archives(javadocJar)
-  }
 }
 
-publishing {
-  publications {
-    register("mavenJava", MavenPublication::class) {
-      from(components["java"])
-
-      artifact(tasks.getByName("sourcesJar"))
-      artifact(tasks.getByName("javadocJar"))
-
-      pom {
-        name.set("Gradle docker plugin")
-        description.set("Docker plugin applying some configuration for your builds")
-        url.set("https://github.com/ekino/gradle-docker-plugin")
-
-        licenses {
-          license {
-            name.set("MIT License (MIT)")
-            url.set("https://opensource.org/licenses/mit-license")
-          }
-        }
-
-        developers {
-          developer {
-            organization.set("ekino")
-            organizationUrl.set("https://www.ekino.com/")
-          }
-        }
-
-        scm {
-          connection.set("scm:git:git://github.com/ekino/gradle-docker-plugin.git")
-          developerConnection.set("scm:git:ssh://github.com:ekino/gradle-docker-plugin.git")
-          url.set("https://github.com/ekino/gradle-docker-plugin")
-        }
-      }
-    }
-
-    //needed by sonatype oss check in staging
-    register("mavenPluginMarker", MavenPublication::class) {
-      groupId = gradlePlugin.plugins["gradleDocker"].id
-      artifactId = gradlePlugin.plugins["gradleDocker"].id + ".gradle.plugin"
-
-      pom {
-        name.set("Gradle docker plugin")
-        description.set("Docker plugin applying some configuration for your builds")
-        url.set("https://github.com/ekino/gradle-docker-plugin")
-
-        licenses {
-          license {
-            name.set("MIT License (MIT)")
-            url.set("https://opensource.org/licenses/mit-license")
-          }
-        }
-
-        developers {
-          developer {
-            organization.set("ekino")
-            organizationUrl.set("https://www.ekino.com/")
-          }
-        }
-
-        scm {
-          connection.set("scm:git:git://github.com/ekino/gradle-docker-plugin.git")
-          developerConnection.set("scm:git:ssh://github.com:ekino/gradle-docker-plugin.git")
-          url.set("https://github.com/ekino/gradle-docker-plugin")
-        }
-      }
-
-      pom.withXml {
-        val dependency = asNode().appendNode("dependencies").appendNode("dependency")
-        dependency.appendNode("groupId", project.group)
-        dependency.appendNode("artifactId", project.name)
-        dependency.appendNode("version", project.version)
-      }
-    }
-  }
-
-  repositories {
-    maven {
-      val ossrhUrl: String? by project
-      val ossrhUsername: String? by project
-      val ossrhPassword: String? by project
-
-      url = uri(ossrhUrl ?: "")
-      credentials {
-        username = ossrhUsername
-        password = ossrhPassword
-      }
+val pluginName = "gradleDocker"
+gradlePlugin {
+  plugins {
+    register(pluginName) {
+      id = "com.ekino.oss.gradle.plugin.docker"
+      implementationClass = "com.ekino.oss.gradle.plugin.docker.DockerPlugin"
     }
   }
 }
 
-signing {
-  setRequired({
-    project.hasProperty("signing.keyId") && project.hasProperty("signing.password")
-  })
-  sign(publishing.publications["mavenJava"])
-  sign(publishing.publications["mavenPluginMarker"])
+pluginBundle {
+  website = "https://github.com/ekino/gradle-docker-plugin"
+  vcsUrl = "https://github.com/ekino/gradle-docker-plugin"
+  description = "Docker plugin applying some configuration for your builds"
+
+  (plugins) {
+    named(pluginName) {
+      displayName = "Gradle docker plugin"
+      tags = listOf("ekino", "docker")
+      version = version
+    }
+  }
 }
 
 tasks.jacocoTestReport {

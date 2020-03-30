@@ -2,7 +2,7 @@
 
 Docker gradle plugin for Ekino projects
 
-[![Build Status](https://travis-ci.org/ekino/gradle-docker-plugin.svg?branch=master)](https://travis-ci.org/ekino/gradle-docker-plugin)
+[![Build Status](https://github.com/ekino/gradle-docker-plugin/workflows/Build%20branch/badge.svg)](https://github.com/ekino/gradle-docker-plugin/actions?query=branch%3Amaster+event%3Apush)
 [![GitHub (pre-)release](https://img.shields.io/github/release/ekino/gradle-docker-plugin.svg)](https://github.com/ekino/gradle-docker-plugin/releases)
 [![GitHub license](https://img.shields.io/github/license/ekino/gradle-docker-plugin.svg)](https://github.com/ekino/gradle-docker-plugin/blob/master/LICENSE.md)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ekino_gradle-docker-plugin&metric=alert_status)](https://sonarcloud.io/dashboard?id=ekino_gradle-docker-plugin)
@@ -39,29 +39,7 @@ This will upload the plugin to Nexus repository
 
 ## Usage
 
-To use this plugin add the maven repository on settings.gradle (must be the first block of the file)
-
-```groovy
-pluginManagement {
-  repositories {
-    mavenCentral()
-  }
-}    
-```
-
-Or for SNAPSHOT versions :
-
-```groovy
-pluginManagement {
-  repositories {
-    maven {
-      url 'https://oss.sonatype.org/content/repositories/snapshots/'
-    }
-  }
-}
-```
-
-then add the plugin on build.gradle
+Add the plugin in your Gradle build script:
 
 ```groovy
 plugins {
