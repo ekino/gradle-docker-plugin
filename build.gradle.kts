@@ -9,7 +9,7 @@ plugins {
   id("se.bjurr.gitchangelog.git-changelog-gradle-plugin") version "1.68.1"
   kotlin("jvm") version "1.4.32"
   id("org.sonarqube") version "3.3"
-  id("com.gradle.plugin-publish") version "0.14.0"
+  id("com.gradle.plugin-publish") version "0.16.0"
 }
 
 repositories {
