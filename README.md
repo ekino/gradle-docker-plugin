@@ -1,6 +1,6 @@
 # Ekino gradle docker plugin
 
-Docker gradle plugin for Ekino projects
+Docker gradle plugin for ekino projects
 
 [![Build Status](https://github.com/ekino/gradle-docker-plugin/workflows/Build%20branch/badge.svg)](https://github.com/ekino/gradle-docker-plugin/actions?query=branch%3Amaster+event%3Apush)
 [![GitHub (pre-)release](https://img.shields.io/github/release/ekino/gradle-docker-plugin.svg)](https://github.com/ekino/gradle-docker-plugin/releases)
@@ -10,7 +10,7 @@ Docker gradle plugin for Ekino projects
 
 ## Overview
 
-This plugin configures the following tasks for any Ekino projects :
+This plugin configures the following tasks for any ekino projects :
 
 * Manage docker-compose
 
@@ -35,7 +35,7 @@ This will upload the plugin to Nexus repository
 ## Requirements
 
 - JDK 8
-- Gradle 5.6.4
+- Gradle 6.9.1
 
 ## Usage
 

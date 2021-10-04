@@ -6,14 +6,14 @@ plugins {
   `java-gradle-plugin`
   jacoco
   id("net.researchgate.release") version "2.8.1"
-  id("se.bjurr.gitchangelog.git-changelog-gradle-plugin") version "1.68.1"
+  id("se.bjurr.gitchangelog.git-changelog-gradle-plugin") version "1.71.4"
   kotlin("jvm") version "1.4.32"
   id("org.sonarqube") version "3.3"
-  id("com.gradle.plugin-publish") version "0.14.0"
+  id("com.gradle.plugin-publish") version "0.16.0"
 }
 
 repositories {
-  jcenter()
+  mavenCentral()
   gradlePluginPortal()
 }
 
