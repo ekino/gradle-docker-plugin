@@ -20,9 +20,9 @@ class DockerPlugin : Plugin<Project> {
       pluginManager.apply("docker-compose")
 
       val dockerCompose = extensions.getByType(ComposeExtension::class.java)
-      dockerCompose.forceRecreate = true
-      dockerCompose.removeOrphans = true
-      dockerCompose.upAdditionalArgs = listOf("--renew-anon-volumes")
+      dockerCompose.forceRecreate.set(true)
+      dockerCompose.removeOrphans.set(true)
+      dockerCompose.upAdditionalArgs.set(listOf("--renew-anon-volumes"))
 
       afterEvaluate {
         // Run integration tests using docker compose

@@ -33,9 +33,9 @@ class DockerPluginTest {
     assertTrue(project.plugins.hasPlugin("docker-compose"))
 
     val dockerComposeExtension = project.extensions.getByType(ComposeExtension::class.java)
-    assertTrue(dockerComposeExtension.forceRecreate)
-    assertTrue(dockerComposeExtension.removeOrphans)
-    assertTrue(dockerComposeExtension.upAdditionalArgs.contains("--renew-anon-volumes"))
+    assertTrue(dockerComposeExtension.forceRecreate.get())
+    assertTrue(dockerComposeExtension.removeOrphans.get())
+    assertTrue(dockerComposeExtension.upAdditionalArgs.get().contains("--renew-anon-volumes"))
 
     // Force the project to be evaluated
     val bootRunTask = project.getTasksByName("bootRun", false).first()
@@ -62,9 +62,9 @@ class DockerPluginTest {
     assertTrue(project.plugins.hasPlugin("docker-compose"))
 
     val dockerComposeExtension = project.extensions.getByType(ComposeExtension::class.java)
-    assertTrue(dockerComposeExtension.forceRecreate)
-    assertTrue(dockerComposeExtension.removeOrphans)
-    assertTrue(dockerComposeExtension.upAdditionalArgs.contains("--renew-anon-volumes"))
+    assertTrue(dockerComposeExtension.forceRecreate.get())
+    assertTrue(dockerComposeExtension.removeOrphans.get())
+    assertTrue(dockerComposeExtension.upAdditionalArgs.get().contains("--renew-anon-volumes"))
 
     val tasksNames = project.getAllTasks(false).getValue(project).map { it.name }
     assertFalse(tasksNames.contains("bootRun"))
