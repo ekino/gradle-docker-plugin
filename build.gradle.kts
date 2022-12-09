@@ -80,14 +80,7 @@ pluginBundle {
   website = "https://github.com/ekino/gradle-docker-plugin"
   vcsUrl = "https://github.com/ekino/gradle-docker-plugin"
   description = "Docker plugin applying some configuration for your builds"
-
-  (plugins) {
-    named(pluginName) {
-      displayName = "Gradle docker plugin"
-      tags = listOf("ekino", "docker")
-      version = version
-    }
-  }
+  tags = listOf("ekino", "docker")
 }
 
 tasks.jacocoTestReport {
