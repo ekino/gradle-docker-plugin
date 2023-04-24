@@ -6,7 +6,7 @@ plugins {
   `java-gradle-plugin`
   jacoco
   id("net.researchgate.release") version "3.0.2"
-  id("se.bjurr.gitchangelog.git-changelog-gradle-plugin") version "1.77.2"
+  id("se.bjurr.gitchangelog.git-changelog-gradle-plugin") version "1.79.0"
   kotlin("jvm") version "1.7.22"
   id("org.sonarqube") version "3.5.0.2730"
   id("com.gradle.plugin-publish") version "1.1.0"
